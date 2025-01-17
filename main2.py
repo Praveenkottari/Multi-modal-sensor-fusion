@@ -201,7 +201,8 @@ def bin2h_velo(lidar_bin, remove_plane=False):
     velo_points = scan_data[:, 0:3] 
 
     # delete negative liDAR points
-    velo_points = np.delete(velo_points, np.where(velo_points[3, :] < 0), axis=1)
+    # velo_points = np.delete(velo_points, np.where(velo_points[3, :] < 0), axis=1)
+    velo_points = velo_points[velo_points[:, 0] > 0]
 
     # use ransac to remove ground plane
     if remove_plane:
@@ -236,11 +237,58 @@ def project_velo2cam(lidar_bin, image, remove_plane=False):
     
     return velo_camera
 
+# 1) Define a class dictionary for YOLO classes of interest.
+#    (Add more if you have additional classes.)
+CLASSES = {
+    0: 'person',
+    1: 'bicycle',
+    2: 'car',
+    3: 'motorcycle',
+    5: 'bus',
+    7: 'truck'
+}
+
+def draw_bboxes_on_lidar_image(
+    lidar_image, 
+    bboxes, 
+    color=(0, 255, 0),    # (B, G, R) => red bounding boxes
+    thickness=2
+):
+    """
+    Draw bounding boxes onto the LiDAR-projected image.
+
+    Args:
+        lidar_image (ndarray): The image with LiDAR points already drawn (H×W×3).
+        bboxes (ndarray): Each row is [x1, y1, x2, y2, class_id, conf, ...].
+        color (tuple): BGR color for the rectangle.
+        thickness (int): Line thickness.
+
+    Returns:
+        ndarray: lidar_image with bounding boxes + text drawn.
+    """
+    for bbox in bboxes:
+        # Unpack the bounding box fields 
+        # (Adjust indices if your format is slightly different)
+        x1, y1, x2, y2 = bbox[0], bbox[1], bbox[2], bbox[3]
+      
+
+        
+        # Draw bounding box
+        cv2.rectangle(
+            lidar_image,
+            (int(x1), int(y1)),
+            (int(x2), int(y2)),
+            color=color,
+            thickness=thickness
+        )
+
+
+    return lidar_image
 
 
 #####################################################
 def main():
-    index = 400
+    index = 200
 
     left_image = cv2.cvtColor(cv2.imread(left_image_paths[index]), cv2.COLOR_BGR2RGB)
     bin_path = bin_paths[index]
@@ -248,6 +296,30 @@ def main():
 
     # get detections and object centers in uvz
     bboxes, velo_uvz = get_detection_coordinates(left_image, bin_path,model,T_velo_cam2)
+
+
+
+
+ # 1) Draw LiDAR points on a blank image or a copy of left_image
+    lidar_proj_image = np.zeros_like(left_image)  # black background
+    lidar_proj_image = draw_velo_on_image(velo_uvz, lidar_proj_image)
+    
+    # 2) Draw bounding boxes from YOLO onto the LiDAR-projected image
+    lidar_proj_image_with_bboxes = draw_bboxes_on_lidar_image(lidar_proj_image.copy(), bboxes)
+
+    # -- Display or show the new image (depending on your environment) --
+    # Option A: Using OpenCV to show in a GUI window:
+    # cv2.imshow("LiDAR with Detected BBoxes", cv2.cvtColor(lidar_proj_image_with_bboxes, cv2.COLOR_RGB2BGR))
+    # cv2.waitKey(0)
+
+    # Option B: Using PIL to show the image in a popup:
+    lidar_proj_image_pil = Image.fromarray(lidar_proj_image_with_bboxes)
+    lidar_proj_image_pil.show(title="LiDAR with Detected Bounding Boxes")
+
+
+
+
+
 
     # get transformed coordinates of object centers
     uvz = bboxes[:, -3:]
