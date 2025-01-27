@@ -4,10 +4,10 @@
 In modern Robotics and Autonomous driving, Robust perception is crucial for safe navigation, obstacle avoidance, and situational awareness. This study presents a Multi-Modal Fusion Pipeline that integrates Lidar, Camera, and IMU sensors for end-to end 3D object detection, mapping and global localization, particularly suited for real world driving  environments. The approach is validated on the KITTI dataset, but i can be generalized for any input source. In Point cloud mapping applied  ground plane removal to furthur reduce the computational overhead, while extracting meaningful 3D object clusters. The resulting 3D bounding boxes and depth measurements are then fused with IMU data for real time geospatial mapping, enabling reliable global localization.  This pipeline has broad applicability in self driving vehicles and mobile robotics, providing a unified framework for efficient environment perception. Experimental results confirm that the pipeline maintains reliable object localization while meeting real time constraints, demonstrating its effectiveness in delivering an end-to-end system that is computationally efficient.
 
 
-## Demo
+## Detection + Depth + BEV mapping
+<div align="center">
 <img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a264e2e5ec3818c5cec5ab0dd777a6e4cc2a9e48/output/out.gif" width="600" alt="animated hello">
-
-[Insert gif or link to demo](https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a264e2e5ec3818c5cec5ab0dd777a6e4cc2a9e48/output/out.gif)
+</div>
 
 
 ## Installation
