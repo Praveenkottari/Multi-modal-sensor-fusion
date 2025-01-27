@@ -6,7 +6,7 @@ In modern Robotics and Autonomous driving, Robust perception is crucial for safe
 
 ## Demo
 
-Insert gif or link to demo
+[Insert gif or link to demo](https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a264e2e5ec3818c5cec5ab0dd777a6e4cc2a9e48/output/out.gif)
 
 
 ## Installation
