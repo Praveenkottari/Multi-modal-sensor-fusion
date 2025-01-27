@@ -9,26 +9,14 @@ In modern Robotics and Autonomous driving, Robust perception is crucial for safe
 <img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a264e2e5ec3818c5cec5ab0dd777a6e4cc2a9e48/output/out.gif" width="600" alt="animated hello">
 </div>
 
-
-## Installation
-
-clone the repository and install required pakages
-
-```bash
-  git clone https://github.com/Praveenkottari/Multi-modal-sensor-fusion.git
-```
-```bash
-  cd Multi-modal-sensor-fusion
-```
-```bash
-  pip install -r requirements.txt
-```
     
-## Roadmap
+## Project pipline
+<div align="center">
+<img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a6ea5feb5954416a6b29ae5996f2e0e4e2ee7627/pipline.png" width="600" alt="animated hello">
+</div>
 
-- Additional browser support
+The projection pipeline aligns Lidar points with the camera view of detection and depth estimation. The systemproduces 2D and 3D bounding boxes on the image space with depth, while mapping the objects to a global coordinate frame
 
-- Add more integrations
 
 <div align="center">
 <img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/eaa03c1bdbd092d6183c6729131db1af474c101c/output/steps.gif" width="600" alt="animated hello">
@@ -39,42 +27,31 @@ clone the repository and install required pakages
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+   git clone https://github.com/Praveenkottari/Multi-modal-sensor-fusion.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+   cd Multi-modal-sensor-fusion
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+  pip install -r requirements.txt
 ```
 
-Start the server
+Run Python file
 
 ```bash
-  npm run start
+  python main.py
 ```
 
-
-
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
 
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [PixelOverflow](https://youtube.com/@pixeloverflow?si=GoiB8ai2mv4GR1x_)
+ - [Ultralytics/yolov8](https://docs.ultralytics.com/)
+ - [KITTI dataset](https://www.cvlibs.net/datasets/kitti/)
