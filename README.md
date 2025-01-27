@@ -48,8 +48,7 @@ Run Python file
   python main.py
 ```
 
-Note: 1.In this repo small dataset is given the complete dataset can be downloded from [here](https://www.cvlibs.net/datasets/kitti/raw_data.php)
-      2. Change the directory paths accordingly  
+Note: In this repo small dataset is given the complete dataset can be downloded from [here](https://www.cvlibs.net/datasets/kitti/raw_data.php) 
 
 
 ## Acknowledgements
