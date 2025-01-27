@@ -25,6 +25,9 @@ Install my-project with npm
 
 - Add more integrations
 
+<div align="center">
+<img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/eaa03c1bdbd092d6183c6729131db1af474c101c/output/steps.gif" width="600" alt="animated hello">
+</div>
 
 ## Run Locally
 
