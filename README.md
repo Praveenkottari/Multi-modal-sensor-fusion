@@ -10,7 +10,7 @@ In modern Robotics and Autonomous driving, Robust perception is crucial for safe
 </div>
 
     
-## Project pipline
+## Project pipeline
 <div align="center">
 <img src="https://github.com/Praveenkottari/Multi-modal-sensor-fusion/blob/a6ea5feb5954416a6b29ae5996f2e0e4e2ee7627/pipline.png" width="600" alt="animated hello">
 </div>
