@@ -12,11 +12,16 @@ In modern Robotics and Autonomous driving, Robust perception is crucial for safe
 
 ## Installation
 
-Install my-project with npm
+clone the repository and install required pakages
 
 ```bash
-  npm install my-project
-  cd my-project
+  git clone https://github.com/Praveenkottari/Multi-modal-sensor-fusion.git
+```
+```bash
+  cd Multi-modal-sensor-fusion
+```
+```bash
+  pip install -r requirements.txt
 ```
     
 ## Roadmap
